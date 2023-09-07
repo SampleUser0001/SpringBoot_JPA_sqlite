@@ -1,15 +1,13 @@
 package sample.database.sqlite.entity.repository;
 
 import java.util.List;
+import org.springframework.data.repository.CrudRepository;
 
 import sample.database.sqlite.entity.Customer;
 
-public interface CustomerRepository {
+public interface CustomerRepository extends CrudRepository<Customer, Long> {
 
-    List<Customer> findByLastName(String lastName);
-    List<Customer> findAll();
+  List<Customer> findByLastName(String lastName);
 
-    Customer findById(long id);
-
-    void save(Customer customer);
+  Customer findById(long id);
 }
